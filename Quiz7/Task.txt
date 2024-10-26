@@ -1,0 +1,87 @@
+----------------------------------- QUIZ 7 -----------------------------------
+
+1. Förklara skillnaden mellan ett logiskt och ett matematiskt uttryck. 
+Ge exempel på båda 
+
+- Logiskt uttryck är ett uttryck som if, bool, while etc. matematiskt uttryck är i ett värde som + -
+
+
+2. Förklara skillnaden mellan referens-likhet (referential equality) och värde
+likhet (structual equality) 
+
+- referens likhet kollar om det är samma referens i heapen och om man kör och värde om det är samma värde. Värde refernse type så användar man iequadeble
+
+    
+3. Vad är skillnaden mellan rectangular och jagged array? 
+
+    - innehållet i en rectangular måste ha samma längd i båda leden.
+    - jagged kan ha varierande längd. Är en serie av endimensionella arrayer
+
+
+4. Vad är en virtuell Metod eller Property? 
+
+    - det är när förälderna kan ärva barnets attributs.
+    ex. public virtual string x => public override string x
+
+
+5. Givet nedan typ och metod.
+Betrakta nedan kod och svara på frågorna.
+
+Vad skrivs ut? 
+
+Output:
+Duck can fly? True
+Ostrich can fly? False!
+
+
+
+6. Typen ändras till nedan, medan koden är oförändrad: 
+Vad skrivs nu ut? 
+
+
+7. Förklara skillnaden mellan en mutable och immutable typ. Ge exempel på 
+en immutable referens typ i C#. 
+
+Type class är en mutable reference type, likaså array.
+
+immutable är till exempel int, string, record, struct
+
+8. Vad är sant avseende arv (Inheritance)? 
+
+
+§ Förälderklassen (parent class) övertar alla egenskaper från dess barn 
+(derived class)  
+
+- falsk, parent class kan ej ta över egenskaper från derived class om man inte gör en så kallad
+polymorph av det, det vill säga en virtual i parent class (property).
+
+
+§ Ett barn (derived class) ärver alla publika (public) och skyddade (protected) 
+egenskaper från förälderklassen (parent class) 
+
+- sant, allt som paret class har ärver derived class förutom private eftersom private är endast 
+accessable inom sin egna class.
+
+§ I en instans av ett barn kan man använda base och this C# nyckelorden 
+(keywords) för att skilja på användning av förälderns och barnets members 
+§ Virtuella metoder är ett sätt att anropa barnets implementation av en 
+metod som föräldern också har implementerat.  
+
+- sant,
+
+
+9. Vad är en class indexer och varför används den? 
+
+- Man kan accessa ett innehåll direkt från en array.
+
+
+10. Givet nedan typ:
+
+Copy 1:
+
+
+Copy 2:
+
+
+Copy 3: 
+

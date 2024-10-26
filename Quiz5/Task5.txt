@@ -1,0 +1,25 @@
+1. Förklara Operator overloading och varför används det?
+
+2. Förklara skillnaden mellan Property och Field i en class eller struct 
+• Varför använder man properties istf fields? 
+
+3. Förklara designmetodologin ”Backing Field” 
+• När använder man ”Backing Field” metodologin? 
+
+4. Förklara skillnaden mellan en static member och en non-static member i in 
+class eller struct. 
+
+5. Vad är en instans av en class? 
+
+6. Vad är en class constructor? 
+• Hur deklareras en class constructor? 
+• Varför använder man en constructor? 
+• Förklara relationen mellan en constructor och object initiering 
+
+7. Förklara begreppen, instantiering, variabel, referens till en instans, heap, 
+stack, constructor, object initiering med nedan två koder.  
+• PlayingCard card = new PlayingCard(); 
+• PlayingCard card = new PlayingCard () { Value = 2}; 
+
+8. OOP bygger på 3 principer, Encapsulation (inkapsling), Inheritance (Arv), 
+Polymorphism (Polymorfism). Förklara de 3 begreppen
