@@ -270,8 +270,8 @@ namespace quiz4
     - Vad skrivs ut i nedan kod?
     
     int aNumber = 30;
-    Console.WriteLine(AddFive(aNumber));
-    Console.WriteLine(aNumber);
+    Console.WriteLine(AddFive(aNumber));    // egen instans på stacken
+    Console.WriteLine(aNumber);             // egen instans på stacken
 
     output: 35      -> skicka
     output: 30

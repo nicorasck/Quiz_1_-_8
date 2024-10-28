@@ -1,0 +1,184 @@
+----------------------------------- QUIZ 8 -----------------------------------
+
+
+1. Betrakta nedan kod och svara på frågorna - - 
+
+public string SimplePassword(int Seed) => $"KhP1Y"{Seed}";
+
+public string SimplePassword(string prefix)
+{
+    var rnd = new Random();
+    return $"{prefix}KhP1Y{rnd.Next(0, 10000)}";
+}
+
+public string SimplePassword(int Seed, string prefix) => $"{prefix}KhP1Y{Seed}";
+
+Vilka är expression bodied methods (A, B, C) 
+- A & C (=>)
+Vilka methoder är overloaded (A, B, C) 
+- A, B & C, alla har samma signaturnamn förutom innehållet på parametrarna.
+
+-------------------------------------------------------------------------------
+2. Vad är sant avseende switch statement och switch expression? 
+
+• Switch statement kan exekvera flera rader kod per matchande värde 
+(efter case). 
+- JA, det är sant. Ett Switch-statement kan ha flera olika värden.
+
+• Switch statement är ett uttryck som måste resultera i ett värde.  
+- Nej, det är falskt.
+
+• Switch expression kan exekvera flera rader kod per matchande värde 
+(efter =>) 
+- NEJ, det är falskt. returnerar endast ett värde.
+
+• Switch expression är ett uttryck som måste resultera i ett värde.  
+-JA, det är sant.
+
+-------------------------------------------------------------------------------
+3. Du vill skapa en array av typen DateTime och initiera den med 100 
+slumpmässiga datum mellan 2000-01-01 och 2020-12-31 och skriver nedan 
+kod. Du vet att DateTime har metoderna Parse och TryParse och läser i 
+dokumentationen att Parse kastar (throw) FormatException om ett datum 
+är felaktig.  
+
+Betrakta nedan kod och svara på frågorna: 
+
+DateTime[] myDates = new DateTime[100];
+var rnd = new Random();
+
+for (int i = 0; i < myDates.Length; i++)
+{
+    string aRandomDate = $"{rnd.Next(2000, 2021)}--{rnd.Next(1, 13)}--{rnd.Next(1, 32)}";
+    myDates[i] = DateTime.Parse(aRandomDate);
+    Console.WriteLine(myDates[i]);
+}
+
+Kommer koden att fungera? Om inte vad är felet och hur skulle man kunna 
+hantera felet. 
+- NEJ, fel på datumet.
+
+Man kan skriva:
+
+DateTime[] myDates = new DateTime[100];
+var rnd = new Random();
+
+int datesWritten = 0;
+for (int i = 0; i < myDates.Length; i++)
+{
+    try
+    {
+    string aRandomDate = $"{rnd.Next(2000, 2021)}--{rnd.Next(1, 13)}--{rnd.Next(1, 32)}";
+    myDates[i] = DateTime.Parse(aRandomDate);
+    Console.WriteLine(myDates[i]);
+    }
+    catch
+    {
+        i--;
+    }
+}
+Console.WriteLine($"datesWritten");
+
+-------------------------------------------------------------------------------
+4. Vilka två gränssnitt, och metoder, ska man typiskt implementera i sin class 
+eller struct typ för att kunna använda .NETs rika utbud av funktionalitet som 
+innehåller sortering och/eller jämförelse av två instanser. 
+
+§ IEquals<T> och ICompareTo<T>
+§ IEquatable<T> och IComparable<T>      => Dessa ska man använda
+§ Equals() och CompareTo()              => Dessa ska man använda
+§ Equals(object obj) och GetHashCode()  // dessa bör man implementera, men måste ej.
+
+-------------------------------------------------------------------------------
+5. Förklara vad Generics är.  
+
+- Det är en Type-safe metod där man inte är beroende av vilken typ av klass det är.
+Datron räknar sjäkv ut vilken datatyp det ska vara sen i programmet.
+- en kod som fungerar för flera typer.
+
+List<T> är ett exempel på detta.
+
+-------------------------------------------------------------------------------
+6. Givet nedan typ 
+Betrakta nedan kod och svara på frågorna: 
+
+public class ClassB<T>
+{
+    public T[] tArray;
+
+    public ClassB(int count)
+    {
+        tArray = new T[count];
+        for (int i = 0; i < tArray.Length; i++)
+        {
+            tArray[i] = default;
+        }
+    }
+}
+
+Betrakta nedan kod och svara på frågorna:   
+
+var myClassB1 = new ClassB<int>(10);
+var myClassB2 = new ClassB<string>(10);
+
+Förklara innehållet av instanserna myClassB1 och myClassB2.  
+
+myClassB1 är en int array bestående av 10 st. '0' (default för int är 0).
+myClassB2 är en string array bestående av 10 st. 'null' (default för string är null).
+
+De fungerar likadant men skillnaden är att värdetypen är olik.
+
+-------------------------------------------------------------------------------
+7. Typen ändras till nedan: 
+Vad händer nu med koden som skapar instanserna myClassB1 och 
+myClassB2? 
+
+
+public class ClassB<T> where T:struct
+{
+    public T[] tArray;
+
+    public ClassB(int count)
+    {
+        tArray = new T[count];
+        for (int i = 0; i < tArray.Length; i++)
+        {
+            tArray[i] = default;
+        }
+    }
+}
+
+Vad händer nu med koden som skapar instanserna myClassB1 och 
+myClassB2? 
+
+myClassB1 kommer att funka eftersom int är en värdetyp (fungerar i struct eftersom den också är en värdetyp).
+myClassB2 kommer ej att funka eftersom det är en string (fungerar ej eftersom det är en reference type)
+
+-------------------------------------------------------------------------------
+8. Betrakta nedan kod och svara på frågorna 
+Vad skrivs ut? 
+
+string [] sArray = "The quick brown fox cathces the rabbit".Split(' ');
+System.Console.WriteLine(string.Join('-', sArray));
+
+Output:
+The-quick-brown-fox-cathces-the-rabbit
+    
+- Först delar den upp alla ord och sen sätts de ihop med '-'.
+
+-------------------------------------------------------------------------------
+9. Beskriv de fundamental skillnaderna mellan typerna string och 
+StringBuilder. Vilka designfördelar erbjuder de olika typerna? 
+
+String är immutable - bra om man ska ha enskilda strängar som bara ska skriva ut saker.
+StringBuilder gör att att den blir mutable - fördelen är att man kan använda insert, replace, or append
+utan att behöva skapa ny instanser varje gång. Alltså bra när man har stora textstycken. Man sparar på runtime.
+
+-------------------------------------------------------------------------------
+10.  Beskriv de fundamental skillnaderna mellan typerna List<T> och 
+LinkedList<T>. Vilka designfördelar erbjuder de olika typerna?
+
+List<T> erbjuder snabb direktåtkomst, men för att söka igenon måste man gå igenom hela listan.
+
+LinkedList<T> är bättre för insättningar eller borttagningar i mitten av listan, har dock ingen indexering.
+-------------------------------------------------------------------------------
