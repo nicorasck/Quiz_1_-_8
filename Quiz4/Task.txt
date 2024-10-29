@@ -122,6 +122,7 @@ ____________________________________________________________________________
     - Vad heter de två olika array strukturerna i C#?
     - Vad är den fundametala skillnaden? 
     - Hur loopar jag igenom och skriver ut alla talen i array? 
+        Man kan loopa med foreach med en foreach.
 
     int [][] matrix1 = {new int [] {5,10,-2,13},
                         new int [] {42,15,46,17,-8,-9},
@@ -129,6 +130,7 @@ ____________________________________________________________________________
                         }
 
     1. jaggedArray, kan innehålla olika längder på array'erna  "int [][]"
+        - man kan ha arrays in arrays
 
     ex.
     System.Console.WriteLine(matrix1[0][3]);

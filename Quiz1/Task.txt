@@ -62,8 +62,8 @@ Deklarera en variabel, i, av typen int och tilldela den the största värdet. -
 
     Output:
     2147483647      // MaxValue av int
-    -2147483648     // ökar man med 1 blir det negativt
-    -2147483647     // ökar man med 1 igen börjar den räkna igen
+    -2147483648     // ökar man med 1 blir det negativt => silent Overflow om man inte stoppar
+    -2147483647     // ökar man med 1 igen börjar den räkna igen => silent Overflow om man inte stoppar
 
     När man gör på detta vis, att öka med 1 över MaxValue kallas det för "Overflow".
 ______________________________________________________________________

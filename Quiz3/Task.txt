@@ -56,12 +56,12 @@ int k = i++;                    => aritmetisk
 bool l = j > i && k == 6;       => logiskt uttryck
 
 if (j == k)                     => logiskt uttryck
-    k++;
+    k++;                        => aritmetisk
 
 Vilka rader (A-F) innehåller logiska uttryck (expressions)? 
 Vilka rader (A-F) innehåller aritmetiska uttryck (expressions)? 
 
-3 första med int är Aritmetiska, bool och if satsen är logiska
+Tre första med int är Aritmetiska, bool och if satsen är logiska men k++ är aritmetisk.
 
 ___________________________________________________________________________
 6. Vad är den fundamentala skillnaden mellan en värde-typ (value type) och 

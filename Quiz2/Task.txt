@@ -9,7 +9,7 @@
                 innehåller en integer. Int, String, Enum, Class, Struct,
                 Float, Bool, Double osv.
 
-    värde:      informationen man sparar
+    värde:      informationen man spararm instansen som man har skapat.
 
     variabel:   någonting som kan ha flera olika värden över tid
 
@@ -93,7 +93,7 @@ ________________________________________________________________________________
     5. Förklara en enum typ? 
     - En samling av integers som man ger namn till och kan kalla på
     ex: enPlayingCardColor.Heart
-    Enum är en "uppäräknartyp" .
+    Enum är en "uppräknartyp" .
 
     Kan man loopa igenom värdena i en enum typ?
     - JA.
@@ -130,15 +130,15 @@ ________________________________________________________________________________
     Console.WriteLine("\n\nQ6");
     System.Console.WriteLine("Value type");
     stA v1 = new stA() { val = 10};
-    stA v2 = v1;            // Här kopieras typen v2 från v1 i stacken.
-    v2.val = 20;            // Värdet av v2 = 20 blir ej samma som v1 efttersom de är satta
-                            // till olika värden, en pointer som är mot heapen, den refereras!
+    stA v2 = v1;                                    // Här kopieras typen v2 från v1 i stacken.
+    v2.val = 20;                                    // Värdet av v2 = 20 blir ej samma som v1 efttersom de är satta
+                                                    // till olika värden, en pointer som är mot heapen, den refereras!
     System.Console.WriteLine($"v1.val: {v1.val}\tv2.val: {v2.val}");
 
-    System.Console.WriteLine("Reference type"); // till skillnad från struct är class en referenstyp (heapen)
-    csA r1 = new csA() { val = 10}; // Här bildas en variabel på stacken men objektet med innehållet pekar mot heapen.
-    csA r2 = r1;            // Här skapas en ny referenstyp vars innehåll kopieras från r1 till r2 i heapen. De pekar
-    r2.val = 20;            // på samma instans i heapen och därför blir värdet av r1 även 20 eftersom r2 är satt till 20.
+    System.Console.WriteLine("Reference type");    // till skillnad från struct är class en referenstyp (heapen)
+    csA r1 = new csA() { val = 10};                // Här bildas en variabel på stacken men objektet med innehållet pekar mot heapen.
+    csA r2 = r1;                                   // Här skapas en ny referenstyp vars innehåll kopieras från r1 till r2 i heapen. De pekar
+    r2.val = 20;                                   // på samma instans i heapen och därför blir värdet av r1 även 20 eftersom r2 är satt till 20.
     System.Console.WriteLine($"r1.val: {r1.val}\tr2.val: {r2.val}");
 
     Output:
@@ -213,17 +213,17 @@ ________________________________________________________________________________
 _________________________________________________________________________________
     9. Vilka olika typer av loopar finns i C#. Beskriv dessa kortfattat. 
 
-    for             // man loopar igenom tex tal, den räknar upp.
+    for             // man loopar igenom tex tal, den räknar upp ett visst antal gånger.
     foreach         // man loopar igenom någon form av lista, går igenom varje position.
     while           // loopar igenom koden så länge något är sant/falskt, därefter fortsätter programmet.
     do-while        // som while men den gör först, do, och sedan går igenom while.
 
 
-    Extra. Vad ör break, continue och return?
+    Extra. Vad är break, continue och return?
     - Break avslutar loopen helt och hållet.
-    - Continue hoppar till nästa varv - loopen vid forsättter ett visst
+    - Continue hoppar till nästa varv - loopen forsättter vid ett visst
     tillfälle och fortsätter vid nästa iteration.
-    - Return avbryter pågående metoed och kan ta med sig ett värde.
+    - Return avbryter pågående metod och kan ta med sig ett värde.
 _________________________________________________________________________________
    
 */
