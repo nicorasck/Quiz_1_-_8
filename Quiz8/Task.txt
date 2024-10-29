@@ -61,22 +61,24 @@ Man kan skriva:
 
 DateTime[] myDates = new DateTime[100];
 var rnd = new Random();
-
+/*
+Console.WriteLine("\nUsing for-loop with i--");
 int datesWritten = 0;
 for (int i = 0; i < myDates.Length; i++)
 {
     try
     {
-    string aRandomDate = $"{rnd.Next(2000, 2021)}--{rnd.Next(1, 13)}--{rnd.Next(1, 32)}";
-    myDates[i] = DateTime.Parse(aRandomDate);
-    Console.WriteLine(myDates[i]);
+        string aRandomDate = $"{rnd.Next(2000, 2021)}-{rnd.Next(1, 13)}-{rnd.Next(1, 32)}";
+        myDates[i] = DateTime.Parse(aRandomDate);
+        Console.WriteLine($"{myDates[i]:d}");
+        datesWritten++;
     }
     catch
     {
         i--;
     }
 }
-Console.WriteLine($"datesWritten");
+Console.WriteLine($"Dates written: {datesWritten}");
 
 -------------------------------------------------------------------------------
 4. Vilka två gränssnitt, och metoder, ska man typiskt implementera i sin class 
