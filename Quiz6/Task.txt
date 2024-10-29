@@ -10,7 +10,9 @@
 
     Det andra är för att implementera egenskaper () för klasser, så som jämförelse (IComparable)
     -Icomp
-    Notering: .NET kräver IComparable för att kunna lösgöra .NETs funktionalitet, för att jämföra
+
+    Summering: Interface kan användas som en typ för att man ska kunna koda och .NET kräver IComparable
+    för att kunna lösgöra .NETs funktionalitet => för att jämföra.
 _____________________________________________________________________________
 2. Givet nedan metod: 
 
@@ -86,7 +88,7 @@ Vad kommer att skrivas ut i nedan kod?
     4 6
     
 Vad händer om utskriften av myarray1 ovan ändras till 
-Console.WriteLine($"{myarray.Length} {myarray[]}");
+Console.WriteLine($"{myarray.Length} {myarray[]}");     // kraschar eftersom muarray1 är satt till null
 _____________________________________________________________________________
 5. Givet nedan typ:
 
@@ -114,14 +116,15 @@ var myStruct = new StructA();
 _____________________________________________________________________________
 6. Vilka påstående är sanna  
 
-    § class, record class och struct stöder alla tre OOP principerna 
-    - Falskt, class och record class stöder men inte struct (kan ej ärva)
+    § class, record class och struct stödjer alla tre OOP principerna 
+    - Falskt, class och record class stödjer men inte struct (kan ej ärva och dessutom
+    stöder struct enbart Inkapsling)
     
     § class och record stöder alla tre OOP principerna 
     - Sant, Class och record stödjer alla principer (inheritance, polymorphism, encapsulation)
 
     § struct stödjer enbart Inkapsling (Encapsulation) 
-    - Falskt, Struct stödjer både encapsulation och polymorphism
+    - Sant, Struct stödjer endast encapsulation
 
     § class stödjer enbart Inkapsling (Encapsulation) 
     - falskt stödjer alla 3
@@ -146,10 +149,11 @@ _____________________________________________________________________________
 9. Vad är sant avseende en ”immutable type”? 
 
     § En typ vars instans inte kan ändra värde efter initiering 
-    - Sant.
+    - Sant. Den är bara skapad en gång. Man kan däremot kopiera den. Ska man ändra den,
+    så måste det skapas en ny individ.
 
     § En typ vars instans inte kan kopieras 
-    -  Falskt
+    -  Falskt, den kan kopieras!
 
     § En typ där alla ändringar på en instans, genom dess metoder, måste 
     returnera en ny instans där ändringarna är reflekterade 
@@ -165,8 +169,10 @@ _____________________________________________________________________________
     - Falskt.
 
     § En record är en immutable struct 
-    - Falskt.
+    - Falskt. Man utgår från att det är en class (dock har struct tillkommit på senare tid)
 
     § En record är en mutable struct 
     - Falskt.
+
+    Notering: På senare tid har man tagit default constructorn från record och stoppat in i class!
 _____________________________________________________________________________

@@ -73,7 +73,7 @@ Ge även exempel på en värde-typ och en referens-typ.
 
 Exempel:
 Referencetyp    => class, string
-Value type      => struct, int
+Value type      => struct, int, float, double osv.
 
 int y = 10;
 int x = y;

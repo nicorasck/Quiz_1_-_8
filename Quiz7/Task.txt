@@ -3,79 +3,192 @@
 1. Förklara skillnaden mellan ett logiskt och ett matematiskt uttryck. 
 Ge exempel på båda 
 
-- Logiskt uttryck är ett uttryck som if, bool, while etc. matematiskt uttryck är i ett värde som + -
+- Logiskt uttryck är ett uttryck som if, bool, while etc. matematiskt uttryck är i ett värde som + - ==
 
+_______________________________________________________________________________
 
 2. Förklara skillnaden mellan referens-likhet (referential equality) och värde
 likhet (structual equality) 
 
-- referens likhet kollar om det är samma referens i heapen och om man kör och värde om det är samma värde. Värde refernse type så användar man iequadeble
+- referens likhet kollar om det är samma referens i heapen och om man kör och värde om det är samma värde.
+Värde refernse type så användar man iEquatable.
 
-    
+_______________________________________________________________________________
+
 3. Vad är skillnaden mellan rectangular och jagged array? 
 
     - innehållet i en rectangular måste ha samma längd i båda leden.
     - jagged kan ha varierande längd. Är en serie av endimensionella arrayer
 
+_______________________________________________________________________________
 
 4. Vad är en virtuell Metod eller Property? 
 
-    - det är när förälderna kan ärva barnets attributs.
+    - det är när parent class kan ärva derived classes attributes.
     ex. public virtual string x => public override string x
 
+_______________________________________________________________________________
 
 5. Givet nedan typ och metod.
+
+public class Bird
+{
+    public bool ICanFly { get; set; } = true;
+}
+public class Duck : Bird { }
+public class Ostrich : Bird
+{
+    public new bool ICanFly { get; } = false;
+}
+
+static void CanIFly(Bird bird)
+{
+    if (bird.ICanFly)
+    {
+        Console.WriteLine($"Hello, I am a {bird.GetType().Name}. Hurray! I can fly!");
+    }
+    else
+    {
+        Console.WriteLine($"Hello, I am a {bird.GetType().Name}. Sadly, I cannot fly!")
+    }
+}
+
 Betrakta nedan kod och svara på frågorna.
 
+static void Main(string[] args)
+{
+    Console.WriteLine($"\nQuestions 5 and 6");
+    CanIFly(new Duck());
+    CanIFly(new Ostrich());
+}
 Vad skrivs ut? 
 
 Output:
-Duck can fly? True
-Ostrich can fly? False!
+Duck can fly?                   // True
+Ostrich can fly?                // Kommer printa true eftersom varibeln är av typen
+                                    bird och inte ostrich. Finns ingen override
 
-
+_______________________________________________________________________________
 
 6. Typen ändras till nedan, medan koden är oförändrad: 
-Vad skrivs nu ut? 
 
+public class Bird
+{
+    public virtual bool ICanFly { get; } = true;    // implemnterar virtual för polymorphism
+}
+public class Duck : Bird { }
+public class Ostrich : Bird{
+    public override bool { get; } = false;
+}
+
+Vad skrivs nu ut? 
+Output:
+Duck can fly?                   // true
+Ostrich can fly?                // false, class ostrich har en override som är satt till false
+                                    och därför skrivs den över boolen från Bird
+
+_______________________________________________________________________________
 
 7. Förklara skillnaden mellan en mutable och immutable typ. Ge exempel på 
 en immutable referens typ i C#. 
 
 Type class är en mutable reference type, likaså array.
+Man kan göra mutable class med { get; set; }
 
 immutable är till exempel int, string, record, struct
+- instansen får inte ändras, men om man ska ändra så måste man göra en metod som skapar
+en ny instans, en kopia av alla properties => man får en kopia (med hjälp av en copy constructor)
+
+_______________________________________________________________________________
 
 8. Vad är sant avseende arv (Inheritance)? 
 
 
 § Förälderklassen (parent class) övertar alla egenskaper från dess barn 
 (derived class)  
-
 - falsk, parent class kan ej ta över egenskaper från derived class om man inte gör en så kallad
 polymorph av det, det vill säga en virtual i parent class (property).
 
 
 § Ett barn (derived class) ärver alla publika (public) och skyddade (protected) 
 egenskaper från förälderklassen (parent class) 
-
 - sant, allt som paret class har ärver derived class förutom private eftersom private är endast 
 accessable inom sin egna class.
 
 § I en instans av ett barn kan man använda base och this C# nyckelorden 
 (keywords) för att skilja på användning av förälderns och barnets members 
+- sant.
+
 § Virtuella metoder är ett sätt att anropa barnets implementation av en 
 metod som föräldern också har implementerat.  
-
 - sant,
 
+_______________________________________________________________________________
 
 9. Vad är en class indexer och varför används den? 
 
 - Man kan accessa ett innehåll direkt från en array.
 
+_______________________________________________________________________________
 
 10. Givet nedan typ:
+
+public class csBook
+{
+    string _title;
+    public string Title { get => _title; set => _title = value; }
+
+    public string Author { get; init; }
+
+    public csBook() { }
+    public csBook(csBook org)
+    {
+        Title = org.Title;
+        Author = org.Author;
+    }
+}
+
+Nedan finns tre olika kopieringar. Enbart ett av alternativen körs, de två andra 
+kommenteras bort. Vad skrivs ut i Copy1, Copy2, resp Copy 3?  
+
+csBook[] books = new csBook[]
+    { new csBook { Title = "The Adventures of Tom Sawyer", Author = "Mark Twain" },
+        new csBook { Title = "The Alchemist", Author = "Paulo Coelho" }};
+
+csBook[] booksCopy = new csBook[2];
+
+
+//Copy 1
+
+booksCopy = books;
+booksCopy[0].Title = "Frankenstein";
+Console.WriteLine(books[0].Title);
+
+booksCopy[0] = null;
+Console.WriteLine(books[0].Title);
+
+
+//Copy 2
+
+Array.Copy(books, booksCopy, books.Length);
+booksCopy[0].Title = "Frankenstein";
+Console.WriteLine(books[0].Title);
+
+booksCopy[0] = null;
+Console.WriteLine(books[0].Title);
+
+
+//Copy 3
+for (int i = 0; i < books.Length; i++)
+{
+    booksCopy[i] = new csBook(books[i]);
+}
+booksCopy[0].Title = "Frankenstein";
+Console.WriteLine(books[0].Title);
+
+booksCopy[0] = null;
+Console.WriteLine(books[0].Title);
+
 
 Copy 1:
 
@@ -85,3 +198,4 @@ Copy 2:
 
 Copy 3: 
 
+_______________________________________________________________________________
