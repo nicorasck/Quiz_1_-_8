@@ -1,6 +1,5 @@
 ----------------------------------- QUIZ 8 -----------------------------------
 
-
 1. Betrakta nedan kod och svara på frågorna - - 
 
 public string SimplePassword(int Seed) => $"KhP1Y"{Seed}";

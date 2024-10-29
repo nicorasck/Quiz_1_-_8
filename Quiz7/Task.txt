@@ -158,44 +158,33 @@ csBook[] books = new csBook[]
 csBook[] booksCopy = new csBook[2];
 
 
-//Copy 1
-
-booksCopy = books;
-booksCopy[0].Title = "Frankenstein";
-Console.WriteLine(books[0].Title);
-
-booksCopy[0] = null;
-Console.WriteLine(books[0].Title);
-
-
-//Copy 2
-
-Array.Copy(books, booksCopy, books.Length);
-booksCopy[0].Title = "Frankenstein";
-Console.WriteLine(books[0].Title);
+// Copy 1                                       === reference copy ===
+booksCopy = books;                         // booksCopy är en referens till books
+booksCopy[0].Title = "Frankenstein";       // Ändrar värdet på stacken som båda pekar på
+Console.WriteLine(books[0].Title);         // Prints Frankenstein
 
 booksCopy[0] = null;
-Console.WriteLine(books[0].Title);
+Console.WriteLine(books[0].Title);         // Crashes with NullReferenceException
 
 
-//Copy 3
-for (int i = 0; i < books.Length; i++)
+// Copy 2                                       === shallow copy ===
+Array.Copy(books, booksCopy, books.Length); // Skapar en shallow-copy, en ny array men värdena på heapen är delade mellan books och booksCopy
+booksCopy[0].Title = "Frankenstein";        // Ändrar båda
+Console.WriteLine(books[0].Title);          // Prints Frankenstein
+
+booksCopy[0] = null;                        // Sätter endast booksCopy's referens till null, men inte books referens
+Console.WriteLine(books[0].Title);          // Prints Frankenstein
+
+
+// Copy 3                                          ==== deep cpoy ===                                
+for (int i = 0; i < books.Length; i++)      // Skapar en deep-copy (en ny araray med likadana värden)
 {
-    booksCopy[i] = new csBook(books[i]);
+        booksCopy[i] = new csBook(books[i]);
 }
-booksCopy[0].Title = "Frankenstein";
-Console.WriteLine(books[0].Title);
+booksCopy[0].Title = "Frankenstein";        // Ändrar bara i booksCopy
+Console.WriteLine(books[0].Title);          // Printar The Adventures of Tom Sawyer
 
 booksCopy[0] = null;
-Console.WriteLine(books[0].Title);
-
-
-Copy 1:
-
-
-Copy 2:
-
-
-Copy 3: 
+Console.WriteLine(books[0].Title);          // Printar The Adventures of Tom Sawyer 
 
 _______________________________________________________________________________
