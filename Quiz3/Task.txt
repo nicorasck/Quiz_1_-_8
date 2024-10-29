@@ -1,0 +1,165 @@
+------------------------------- Quiz 3 Svar -------------------------------
+
+1. Förklara i nedan kod vilket är typ, värde, variabel och konstant 
+
+int myInt = 3;
+float myFloat = default;
+string myString1 = "Hello, World!";
+const string myString2 = "Hello, World!";
+
+Typen är int,float, string osv. Värdet är det du sätter: 3, defaultVariablerna
+börjar med my tex myIntConst är string och där försvinner variabeln.
+(Ändrar man värdet i en gammal variabel så försvinner det värdet)
+
+___________________________________________________________________________
+2. Vilka typer är myVar1 t om myVar9 i nedan kod? 
+
+static void Main(string[] args)
+{
+    var myVar1 = 123;           => int
+    var myVar2 = 123L;          => long
+    var myVar3 = 123U;          => unsigned int (kan ej vara negativ)
+    var myVar4 = 123UL;         => unsigned long (kan ej vara negativ)
+    var myVar5 = 123F;          => float
+    var myVar6 = 123D;          => double
+    var myVar7 = 123M;          => decimal (används till Exempel av banker)
+    var myVar8 = "Hello";       => string
+    var myVar9 = true;          => bool
+}
+
+___________________________________________________________________________
+3. Förklara underförstådd typ omvandling (implict type cast) och uttrycklig
+typomvandling (explicit type cast). 
+
+Implicit Type Casting:
+Sker automatiskt när det inte finns risk för dataförlust,
+exempelvis från int till double.
+
+Explicit Type Casting:
+Krävs när du omvandlar mellan oförenliga typer eller
+från en större typ till enmindre, exempelvis från double till int.
+Tex i project part när du omvandlar priset till en decimal fast det kan va en int.
+
+___________________________________________________________________________
+4. Hur får man reda på de största och minsta numeriska tal .NET kan 
+representera i numeriska typer så som int, ulong, float? 
+
+Console.WriteLine($"{int.MinValue}{int.MaxValue}");
+Samma princip med dom andra typerna.
+
+___________________________________________________________________________
+5. Betrakta nedan kod och svara på frågorna 
+
+int i = 5;                      => aritmetisk
+int j = 3 * i;                  => aritmetisk
+int k = i++;                    => aritmetisk
+bool l = j > i && k == 6;       => logiskt uttryck
+
+if (j == k)                     => logiskt uttryck
+    k++;
+
+Vilka rader (A-F) innehåller logiska uttryck (expressions)? 
+Vilka rader (A-F) innehåller aritmetiska uttryck (expressions)? 
+
+3 första med int är Aritmetiska, bool och if satsen är logiska
+
+___________________________________________________________________________
+6. Vad är den fundamentala skillnaden mellan en värde-typ (value type) och 
+en referns-typ (reference type)?
+    
+    - Value type lagras på stacken, referensen på heapen.
+
+Ge även exempel på en värde-typ och en referens-typ. 
+
+Exempel:
+Referencetyp    => class, string
+Value type      => struct, int
+
+int y = 10;
+int x = y;
+x = 10;
+
+Lagras på stacken tex. Memory Location Stored in the stack.
+
+Reference stored in the stack, object in heap.Copies Assigning copies the value(independent).
+Assigning copies the reference (points tosame data).FunctionParametersPassed by value (copy ofdata).
+Passed by reference (pointer todata).ExampleTypesPrimitive types (e.g., int, float,bool).Objects, arrays, strings (non-primitivetypes).
+
+___________________________________________________________________________
+7. Beskriv hur utskriften formateras i nedan kod  
+
+string myBook1 = "An inxpensive book";
+decimal myPrice1 = 70M;
+string myBook2 = "An expensive book";
+decimal myPrice2 = 600M;
+Console.WriteLine($"{myBook1, -20}{myPrice1, 10:C2}");
+Console.WriteLine($"{myBook2, -20}{myPrice2, 10:C2}");
+
+1. CW: An inxpensive book, -20 radavstånd,      $70.00 med två decimaler, 10 radavstånd
+2. CW: A expensive book, -20 radavstånd,        $600.00 , 10 radavstånd
+
+C2 = lokal valuta med två decimaler (beror alltså på vad ens dator är inställd på)
+
+___________________________________________________________________________
+8. Vad skrivs ut i nedan kod
+
+for (int m = 0; m < 20; m++)
+{
+    Console.Write($"{m,4}");
+    if ((m + 1) % 5 == 0)
+    Console.WriteLine();
+}
+
+Loopen visar 5 siffror med ett radavstånd på 4 och ny sen rad. Loopen itererar.
+
+Output:
+   0   1   2   3   4
+   5   6   7   8   9
+  10  11  12  13  14
+  15  16  17  18  19
+
+___________________________________________________________________________
+9. Vad skrivs ut i nedan kod 
+
+for (int m = 0; m < 20; m++)
+{
+    if (m == 3 || m == 8 || m == 13 || m == 18)
+    continue;
+
+    Console.Write($"{m,4}");
+    if ((m + 1) % 5 == 0)
+    Console.WriteLine();
+}
+
+Loopen visar samma men variabeln hoppar över, alltså skriver inte ut i CW siffrorna3,8,13 eller 18.
+Så då blir outputen bara 4 kolumner ist för 5.
+
+Output:
+   0   1   2   4
+   5   6   7   9
+  10  11  12  14
+  15  16  17  19
+
+___________________________________________________________________________
+10. Vad är syftet med namespace Quiz och using System; i nedan kod? 
+
+using Systen;
+
+namespace Quiz
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+
+- Using system gör att du kan skriva ut consolewriteline.
+- Namespace gör det lättare att hålla ordning påkoden.
+- Using System tillåter att man använder tex Console utan att skriva in "System.Console...."
+utan using Systen   => System.Console.WriteLine();
+med using Systen    => Console.WriteLine();
+___________________________________________________________________________
+
