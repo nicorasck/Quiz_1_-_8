@@ -35,10 +35,18 @@ Implicit Type Casting:
 Sker automatiskt när det inte finns risk för dataförlust,
 exempelvis från int till double.
 
+ex.
+int i1 = 10;
+float f2 = i1;
+
 Explicit Type Casting:
 Krävs när du omvandlar mellan oförenliga typer eller
 från en större typ till enmindre, exempelvis från double till int.
 Tex i project part när du omvandlar priset till en decimal fast det kan va en int.
+
+ex.
+float f2 = 10;
+int i2 = (int) f2;
 
 ___________________________________________________________________________
 4. Hur får man reda på de största och minsta numeriska tal .NET kan 
@@ -156,8 +164,7 @@ namespace Quiz
     }
 }
 
-- Using system gör att du kan skriva ut consolewriteline.
-- Namespace gör det lättare att hålla ordning påkoden.
+- Namespace gör det lättare att hålla ordning på koden.
 - Using System tillåter att man använder tex Console utan att skriva in "System.Console...."
 utan using Systen   => System.Console.WriteLine();
 med using Systen    => Console.WriteLine();

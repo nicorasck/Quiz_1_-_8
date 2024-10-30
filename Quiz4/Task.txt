@@ -5,23 +5,23 @@
 
     Förklara hur du löser detta i C#. 
 
-    int [] array = new int [8,9,1,21]
+    int[] arr = new int[] { 8, 9, 1, 21 };
+    int minV = int.MaxValue; //Start med max value så att vi alltid hittar det lägsta värdet
+    int maxV = 0;
 
-    int minValue = int.maxValue;
-    int maxValue= o;
-
-    foreach (var item in array)
+    foreach (int i in arr)
     {
-        if (item < min Value)
-        {
-            minValue = item;
+        if (i < minV)
+        { //Om nuvarande värdet är mindre än min (som startar på max så denna är alltid sann första gången)
+            minV = i; //Om den är mindre så sprar vi i i min
         }
-        if (item < maxValue)
-        {
-            maxValue = item;
+        if (i > maxV)
+        { //Samma fast med max
+            maxV = i;
         }
-        return
     }
+    Console.WriteLine(minV); // 1
+    Console.WriteLine(maxV); // 21
 ____________________________________________________________________________
 
 2.  Förklara skillnaden mellan static och non-static members i en struct eller 

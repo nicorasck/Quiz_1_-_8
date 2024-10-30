@@ -25,14 +25,17 @@ Vilka methoder är overloaded (A, B, C)
 - JA, det är sant. Ett Switch-statement kan ha flera olika värden.
 
 • Switch statement är ett uttryck som måste resultera i ett värde.  
-- Nej, det är falskt.
+- Nej, det är falskt. 
 
 • Switch expression kan exekvera flera rader kod per matchande värde 
 (efter =>) 
 - NEJ, det är falskt. returnerar endast ett värde.
 
 • Switch expression är ett uttryck som måste resultera i ett värde.  
--JA, det är sant.
+-JA, det är sant. 
+
+Tillägg: switch statement har bara fasta värden, det vill säga constants
+i varje case. Varje case avslutas med break.
 
 -------------------------------------------------------------------------------
 3. Du vill skapa en array av typen DateTime och initiera den med 100 
@@ -55,13 +58,13 @@ for (int i = 0; i < myDates.Length; i++)
 
 Kommer koden att fungera? Om inte vad är felet och hur skulle man kunna 
 hantera felet. 
-- NEJ, fel på datumet.
+- NEJ, fel på datumet. Här utgår man från att alla månader innehåller 31 dagar.
 
 Man kan skriva:
 
 DateTime[] myDates = new DateTime[100];
 var rnd = new Random();
-/*
+
 Console.WriteLine("\nUsing for-loop with i--");
 int datesWritten = 0;
 for (int i = 0; i < myDates.Length; i++)
@@ -75,7 +78,7 @@ for (int i = 0; i < myDates.Length; i++)
     }
     catch
     {
-        i--;
+        i--;            // gör så att i resettar till 0 i for-loopen
     }
 }
 Console.WriteLine($"Dates written: {datesWritten}");
