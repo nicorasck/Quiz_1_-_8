@@ -122,6 +122,7 @@ Man kan göra mutable class med { get; set; }
 immutable är till exempel int, string, record, struct
 - instansen får inte ändras, men om man ska ändra så måste man göra en metod som skapar
 en ny instans, en kopia av alla properties => man får en kopia (med hjälp av en copy constructor)
+{ get ; init; }
 
 _______________________________________________________________________________
 
@@ -151,7 +152,11 @@ _______________________________________________________________________________
 
 9. Vad är en class indexer och varför används den? 
 
-- Man kan accessa ett innehåll direkt från en array.
+    - En indexer används för att kunna komma åt en class array / list direkt från referensen
+        var zoo = new csZoo();
+        zoo[0] istället för zoo.ListOfAnimals[0] är ett exempel på hur en indexer används
+
+        public csAnimal this[int idx] { get => ListofAnimals[idx]; } hade man kunnat skriva en indexer för csZoo
 
 _______________________________________________________________________________
 
