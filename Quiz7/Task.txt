@@ -48,7 +48,7 @@ _______________________________________________________________________________
 
 4. Vad är en virtuell Metod eller Property? 
 
-    - det är när parent class kan ärva derived classes attributes.
+    Polymorphism - det är när parent class kan ärva derived classes attributes.
     ex. public virtual string x => public override string x
 
 _______________________________________________________________________________
