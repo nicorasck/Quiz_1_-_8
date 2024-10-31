@@ -181,7 +181,9 @@ StringBuilder. Vilka designfördelar erbjuder de olika typerna?
 10.  Beskriv de fundamental skillnaderna mellan typerna List<T> och 
 LinkedList<T>. Vilka designfördelar erbjuder de olika typerna?
 
-    List<T> erbjuder snabb direktåtkomst, men för att söka igenon måste man gå igenom hela listan.
+    List<T>: En array-baserad samling, idealisk för snabb indexbaserad åtkomst men
+    långsammare för insättningar/borttagningar i mitten.
 
-    LinkedList<T> är bättre för insättningar eller borttagningar i mitten av listan, har dock ingen indexering.
+    LinkedList<T>: En nodbaserad samling som utmärker sig vid snabba insättningar och
+    borttagningar på valfri position men som saknar direkt indexåtkomst.
 -------------------------------------------------------------------------------
