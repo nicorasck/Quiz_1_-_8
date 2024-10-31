@@ -3,14 +3,14 @@
 1. Förklara skillnaden mellan ett logiskt och ett matematiskt uttryck. 
 Ge exempel på båda 
 
-- Logiskt uttryck är ett uttryck som if, bool, while etc. matematiskt uttryck är i ett värde som + - ==
+    - Logiskt uttryck är ett uttryck som if, bool, while etc. matematiskt uttryck är i ett värde som + - ==
 
 Exempel:
 
-var logic_expr1 = ((i1 > 3) || (d1 < 20.5M)) && b1;
-var math_expr1 = i1+3;
-var math_expr2 = i1++;
-var logic_expr2 = (i1++ > 6); 
+    var logic_expr1 = ((i1 > 3) || (d1 < 20.5M)) && b1;
+    var math_expr1 = i1+3;
+    var math_expr2 = i1++;
+    var logic_expr2 = (i1++ > 6); 
 
 _______________________________________________________________________________
 
@@ -55,35 +55,35 @@ _______________________________________________________________________________
 
 5. Givet nedan typ och metod.
 
-public class Bird
-{
-    public bool ICanFly { get; set; } = true;
-}
-public class Duck : Bird { }
-public class Ostrich : Bird
-{
-    public new bool ICanFly { get; } = false;
-}
+    public class Bird
+    {
+        public bool ICanFly { get; set; } = true;
+    }
+    public class Duck : Bird { }
+    public class Ostrich : Bird
+    {
+        public new bool ICanFly { get; } = false;
+    }
 
-static void CanIFly(Bird bird)
-{
-    if (bird.ICanFly)
+    static void CanIFly(Bird bird)
     {
-        Console.WriteLine($"Hello, I am a {bird.GetType().Name}. Hurray! I can fly!");
+        if (bird.ICanFly)
+        {
+            Console.WriteLine($"Hello, I am a {bird.GetType().Name}. Hurray! I can fly!");
+        }
+        else
+        {
+            Console.WriteLine($"Hello, I am a {bird.GetType().Name}. Sadly, I cannot fly!")
+        }
     }
-    else
-    {
-        Console.WriteLine($"Hello, I am a {bird.GetType().Name}. Sadly, I cannot fly!")
-    }
-}
 
 Betrakta nedan kod och svara på frågorna.
 
-static void Main(string[] args)
-{
-    Console.WriteLine($"\nQuestions 5 and 6");
-    CanIFly(new Duck());
-    CanIFly(new Ostrich());
+    static void Main(string[] args)
+    {
+        Console.WriteLine($"\nQuestions 5 and 6");
+        CanIFly(new Duck());
+        CanIFly(new Ostrich());
 }
 Vad skrivs ut? 
 
@@ -96,14 +96,14 @@ _______________________________________________________________________________
 
 6. Typen ändras till nedan, medan koden är oförändrad: 
 
-public class Bird
-{
-    public virtual bool ICanFly { get; } = true;    // implemnterar virtual för polymorphism
-}
-public class Duck : Bird { }
-public class Ostrich : Bird{
-    public override bool { get; } = false;
-}
+    public class Bird
+    {
+        public virtual bool ICanFly { get; } = true;    // implemnterar virtual för polymorphism
+    }
+    public class Duck : Bird { }
+    public class Ostrich : Bird{
+        public override bool { get; } = false;
+    }
 
 Vad skrivs nu ut? 
 Output:
@@ -116,37 +116,36 @@ _______________________________________________________________________________
 7. Förklara skillnaden mellan en mutable och immutable typ. Ge exempel på 
 en immutable referens typ i C#. 
 
-Type class är en mutable reference type, likaså array.
-Man kan göra mutable class med { get; set; }
+    Type class är en mutable reference type, likaså array.
+    Man kan göra mutable class med { get; set; }
 
-immutable är till exempel int, string, record, struct
-- instansen får inte ändras, men om man ska ändra så måste man göra en metod som skapar
-en ny instans, en kopia av alla properties => man får en kopia (med hjälp av en copy constructor)
-{ get ; init; }
+    Immutable är till exempel int, string, record, struct
+    - instansen får inte ändras, men om man ska ändra så måste man göra en metod som skapar
+    en ny instans, en kopia av alla properties => man får en kopia (med hjälp av en copy constructor)
+    { get ; init; }
 
 _______________________________________________________________________________
 
 8. Vad är sant avseende arv (Inheritance)? 
 
-
 § Förälderklassen (parent class) övertar alla egenskaper från dess barn 
 (derived class)  
-- falsk, parent class kan ej ta över egenskaper från derived class om man inte gör en så kallad
-polymorph av det, det vill säga en virtual i parent class (property).
+    - falsk, parent class kan ej ta över egenskaper från derived class om man inte gör en så kallad
+    polymorph av det, det vill säga en virtual i parent class (property).
 
 
 § Ett barn (derived class) ärver alla publika (public) och skyddade (protected) 
 egenskaper från förälderklassen (parent class) 
-- sant, allt som paret class har ärver derived class förutom private eftersom private är endast 
-accessable inom sin egna class.
+    - sant, allt som paret class har ärver derived class förutom private eftersom private är endast 
+    accessable inom sin egna class.
 
 § I en instans av ett barn kan man använda base och this C# nyckelorden 
 (keywords) för att skilja på användning av förälderns och barnets members 
-- sant.
+    - sant.
 
 § Virtuella metoder är ett sätt att anropa barnets implementation av en 
 metod som föräldern också har implementerat.  
-- sant,
+    - sant,
 
 _______________________________________________________________________________
 
