@@ -88,7 +88,7 @@ Vad kommer att skrivas ut i nedan kod?
     4 6
     
 Vad händer om utskriften av myarray1 ovan ändras till 
-Console.WriteLine($"{myarray.Length} {myarray[]}");     // kraschar eftersom muarray1 är satt till null
+Console.WriteLine($"{myarray.Length} {myarray[]}");     // kraschar eftersom myarray1 är satt till null
 _____________________________________________________________________________
 5. Givet nedan typ:
 

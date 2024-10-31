@@ -5,13 +5,21 @@ Ge exempel på båda
 
 - Logiskt uttryck är ett uttryck som if, bool, while etc. matematiskt uttryck är i ett värde som + - ==
 
+Exempel:
+
+var logic_expr1 = ((i1 > 3) || (d1 < 20.5M)) && b1;
+var math_expr1 = i1+3;
+var math_expr2 = i1++;
+var logic_expr2 = (i1++ > 6); 
+
 _______________________________________________________________________________
 
 2. Förklara skillnaden mellan referens-likhet (referential equality) och värde
 likhet (structual equality) 
 
-- referens likhet kollar om det är samma referens i heapen och om man kör och värde om det är samma värde.
-Värde refernse type så användar man iEquatable.
+    Referens-likhet jämför om två saker är samma objekt
+    Värde-likhet jämför om två saker har samma värde
+    För att man ska kunna jämföra måsta man implementera iEquatable.
 
 _______________________________________________________________________________
 
