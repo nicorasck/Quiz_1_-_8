@@ -112,7 +112,7 @@ var myStruct = new StructA();
     - Falskt
     
     § myStruct innehåller en referents till instansen på heapen 
-    - Falskt, struct är ingen reference typ och hamnar därför ej på heapen.
+    - Falskt, struct är ingen reference type och hamnar därför ej på heapen.
 _____________________________________________________________________________
 6. Vilka påstående är sanna  
 

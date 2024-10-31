@@ -37,9 +37,9 @@ ________________________________________________________________________________
 
 • När använder man ”Backing Field” metodologin? 
 
-    private long _height;       // kan endast ändras i nedan kod.
+    private long _height;       // private "backing field" => kan endast ändras i nedan kod.
 
-    public long Height
+    public long Height          // public property.
     {
         get {return _height}
         {
@@ -72,6 +72,7 @@ ________________________________________________________________________________
         ex. csCar car1 = new csCar(); // skapat en ny instans med 'new csCar'
 
         Objektet som har skapats av ritningen i en class (ligger alltså på heapen).
+_____________________________________________________________________________________
 
 6. Vad är en class constructor? 
 
@@ -114,4 +115,5 @@ Inheritance -   ärver attributen i 'barn-noden', till exempel om man har skapat
 
 Polymorphism -  det är när 'föräldern' använder 'barn-nodens' attribut/implentering, som en tvist på originalet.
                 ex. ToString är den mest vanliga metoden i Polymorphism.
+                OBS! Man måste använda sig av virtual för att kunna göra en override.
 _____________________________________________________________________________________
