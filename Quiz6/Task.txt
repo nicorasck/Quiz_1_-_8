@@ -35,8 +35,8 @@ _____________________________________________________________________________
 
 Vad skrivs ut?
 
-    A är en value type och kommer därför inte ändras, array är en refence type och kommer därmed
-    att skrivas över med 2.
+    A är en value type och kommer därför inte ändras, däremot kopieras den eftersom det är en värdetyp.
+    Array är en refence type och kommer därmed att skrivas över med 2. Pekar mot en instans på heapen.
     B är en out-parameter och kommer därför få värdet 2 från metoden
 
     Output:

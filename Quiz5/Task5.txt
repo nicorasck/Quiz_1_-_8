@@ -20,13 +20,12 @@ ________________________________________________________________________________
 2. Förklara skillnaden mellan Property och Field i en class eller struct 
 • Varför använder man properties istf fields? 
 
-    Field -         
-                    Field är en variabel av någon sorts typ som är deklarerad i 
+    Field -         Field är en variabel av någon sorts typ som är deklarerad i 
                     en class eller struct (ex.int eller string).
                     Fields är members som innehåller dess typ.
-                    OBS! När det är i en class rekommenderas det att använda en 
-                    get; set;
-                    
+                    OBS! När det är i en class rekommenderas det att använda en
+                    { get; set; }
+         
     Properties -    ex. public int nrOfCars { get; set; }
                     (här innehåller den properties där man kan sätta ett värde 
                     med get och få ut ett värde med set)
@@ -41,7 +40,7 @@ ________________________________________________________________________________
 
     public long Height          // public property.
     {
-        get {return _height}
+        get {return _height}    / _height returneras här, => backing field 
         {
         set
         (if value < 0 throw new ArgumentException("Height cannot be negative"));
@@ -51,13 +50,15 @@ ________________________________________________________________________________
     
 Backing filed i C# är en privat variabel som används för att lagra faktiska data för en egenskap.
 Det tillåter kontroll över hur data nås eller ändras, ofta genom anpassade get'ers och set'ers.
+
+Med backing field kan man sätta kod i sin set.
 _____________________________________________________________________________________
 
 4. Förklara skillnaden mellan en static member och en non-static member i in 
 class eller struct. 
 
     -   En static member hör till typen och delas av alla instanser. För att komma åt den använder
-        man typen,t.ex. TypNamn.MemberNamn. 
+        man typen,t.ex. TypNamn.MemberNamn. Den finns alltid tillgänglig för alla.
         Exempel: static int x = 10; // static variabel
 
     -   En non-static member hör till en specifik instans av typen och kräver att en instans av

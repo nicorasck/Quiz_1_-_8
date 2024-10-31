@@ -17,8 +17,8 @@ _______________________________________________________________________________
 
 3. Vad är skillnaden mellan rectangular och jagged array? 
 
-    - innehållet i en rectangular måste ha samma längd i båda leden.
-    - jagged kan ha varierande längd. Är en serie av endimensionella arrayer
+    - innehållet i en rectangular måste ha samma längd i båda leden. [,]
+    - jagged kan ha varierande längd. Är en serie av endimensionella arrayer [][]
 
 _______________________________________________________________________________
 
