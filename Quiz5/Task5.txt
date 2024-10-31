@@ -37,6 +37,7 @@ ________________________________________________________________________________
 
 • När använder man ”Backing Field” metodologin? 
 
+    private long _height;       // kan endast ändras i nedan kod.
 
     public long Height
     {

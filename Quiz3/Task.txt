@@ -164,7 +164,7 @@ namespace Quiz
     }
 }
 
-- Namespace gör det lättare att hålla ordning på koden.
+- Namespace gör det lättare att hålla ordning på koden. Paketera.
 - Using System tillåter att man använder tex Console utan att skriva in "System.Console...."
 utan using Systen   => System.Console.WriteLine();
 med using Systen    => Console.WriteLine();
